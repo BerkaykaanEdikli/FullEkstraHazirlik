@@ -1,0 +1,33 @@
+﻿@model Ogrenci;
+
+<form asp-controller="Ogrenci" asp-action="Guncelle" method="post">
+    <input asp-for="OgrenciId" type="hidden" class="form-control" />
+
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label asp-for="OgrenciAdi"></label>
+        <input asp-for="OgrenciAdi" class="form-control" />
+    </div>
+
+    <div class="form-group" style="margin-bottom:5px;">
+        <label asp-for="OgrenciSoyadi"></label>
+        <input asp-for="OgrenciSoyadi" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SinifId">
+            <select name="SinifId" class="form-control" asp-items="@(new SelectList(ViewBag.sinifListeGuncelle, "Value", "Text"))">
+                <option value="@Model.SinifId"> Sınıfınızı Seçiniz</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="form-group" style="margin-top:5px;">
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </div>
+</form>
+
+<script>
+    document.getElementsByTagName("select")[0].selectedIndex = @Model.SinifId;
+</script>

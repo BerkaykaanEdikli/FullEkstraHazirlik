@@ -1,0 +1,22 @@
+﻿@model List<Sinif>
+
+<table class="table">
+    <tr>
+        <th>Sınıf ID</th>
+        <th>Sınıf Adı</th>
+        <th>Sınıf Kodu</th>
+        <th>#</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.SinifId</td>
+            <td>@item.SinifAdi</td>
+            <td>@item.SinifKodu</td>
+            <td>
+                <a class="btn btn-warning" href="/Sinif/Guncelle/@item.SinifId">Güncelle</a>
+                <a class="btn btn-outline-danger" href="/Sinif/Sil/@item.SinifId">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
